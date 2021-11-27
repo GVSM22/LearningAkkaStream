@@ -3,7 +3,7 @@ package part3_graphs
 import akka.NotUsed
 import akka.actor.ActorSystem
 import akka.stream.{ActorMaterializer, ClosedShape}
-import akka.stream.scaladsl.{Balance, Broadcast, Concat, Flow, GraphDSL, Merge, RunnableGraph, Sink, Source, Zip}
+import akka.stream.scaladsl.{Balance, Broadcast, Flow, GraphDSL, Merge, RunnableGraph, Sink, Source, Zip}
 
 import scala.language.postfixOps
 
@@ -75,7 +75,7 @@ object GraphBasics extends App {
     println(s"$name received element: $elem, and has a total of $count elements!")
     count + 1
   })
-Concat
+
   val crazyGraph = RunnableGraph.fromGraph(
     GraphDSL.create(){ implicit builder =>
       import GraphDSL.Implicits._
